@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <link rel="icon" href="<%= BASE_URL %>sa-dark.svg"> -->
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://firebasestorage.googleapis.com/v0/b/cv-angular-b13f5.appspot.com/o/logo-light.svg?alt=media&token=ad3716bf-2e57-4b61-be32-4bc037e197b8">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>S/A</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+
+      // AOS.init();
+      AOS.init({ 
+        disable: 'mobile'
+      }); 
+      // const aosAnimation = document.querySelectorAll('.aos');
+      // observer = new IntersectionObserver((entries) => {
+      // entries.forEach(entry => {
+      // if (entry.intersectionRatio > 0) {
+      // entry.target.classList.add('aos-animate');
+      // } else {
+      // entry.target.classList.remove('aos-animate');
+      // }
+      // });
+      // });
+      // aosAnimation.forEach(aosObject => {
+      // observer.observe(aosObject);
+      // });
+
+
+      var element = document.querySelector("link[rel='icon']");
+        const darkModeListener = (event) => {
+        if (event.matches) {
+          console.log("dark");
+          element.setAttribute("href","<%= BASE_URL %>sa-light.svg");
+        } else {
+          console.log("light");
+          element.setAttribute("href","<%= BASE_URL %>sa-dark.svg");
+        }
+        };
+
+        // Update favicon on Mode change 
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', darkModeListener);
+
+        // Check Mode on load
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          element.setAttribute("href","<%= BASE_URL %>sa-light.svg");
+        } else {
+          element.setAttribute("href","<%= BASE_URL %>sa-dark.svg");
+        }
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+
+
